@@ -1,0 +1,43 @@
+package com.example.board.mapper;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.example.board.dto.BoardDTO;
+import com.example.board.dto.HchartBoardDTO;
+
+@Mapper
+public interface BoardMapper {
+
+	/* 게시글 전체 가져오기 */
+	public List<BoardDTO> findAllBoard();
+	
+	/* 게시글 등록 */
+	public Long insertBoard(BoardDTO board);
+	
+	/* 게시글 번호로 게시글 찾아오기 */
+	public BoardDTO findById(Long post_id);
+	
+	/* 조회수 로직 */
+	public int updateViews(@Param("post_id") Long post_id, @Param("post_views") Long post_views);
+	
+	/* 글 삭제 */
+	public int deletePost(Long post_id);
+	
+	/* 글 수정 */
+	public int updatePost(BoardDTO board);
+	
+	/* 하이차트 데이터 1 - 게시판 별 업로드 된 글의 수 */
+	/*
+	 * public List<Long> selectBoardNum_();
+	 * 
+	 * public List<HchartBoardDTO> selectHchartBoardNum(@Param("boardNumList")
+	 * List<Long> boardNumList);
+	 * 
+	 * public List<Map<Long, Long>> selectBoardNum();
+	 */
+	
+}

@@ -1,0 +1,16 @@
+package com.example.board.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+
+@Mapper
+public interface HchartMapper {
+	
+	/* 하이차트 */
+	public List<Long> selectBoardNum_();
+	
+	public Long hchartBoardCnt (Long boardNum);
+	
+}

@@ -1,0 +1,10 @@
+package com.example.board.dto;
+
+import java.util.List;
+
+public class PageDTO {
+
+	List<BoardDTO> board;
+	int totalPageCnt;
+	
+}

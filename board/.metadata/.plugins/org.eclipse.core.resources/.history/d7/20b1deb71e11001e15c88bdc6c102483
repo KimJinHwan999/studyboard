@@ -1,0 +1,92 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+
+   <body class="form-v10">
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form action="/member/signup" class="form-detail" id="myform" method="post" encType="multipart/form-data">
+				<div class="form-left">
+					<h2>프로필 사진을 설정하세요</h2>
+					<div class="form-row-img">
+						<img id="img-file" src="/images/img-01.png"/>
+					</div>
+					<div class="form-row-img-label">
+						<label class="img-label" for="member_img" >프로필 사진 선택</label>
+						<input type="file" name="file" id="member_img" accept="image/*" style="display:none;"/>
+					</div>
+				</div>
+				<div class="form-right">
+					<h2>회원 가입 정보를 입력하세요</h2>
+					<div class="form-row">
+						<input type="text" name="member_id" class="member_id" id="member_id" placeholder="아이디" value="${loginUserSession.member_id} ">
+					</div>
+					<div class="form-row">
+						<span id="result_checkId"></span>
+					</div>
+					<div class="form-row">
+						<input type="button" name="register" class="register" id="member_id_chk" value="중복검사">
+						<input type="button" name="register" class="register" id="member_id_chk_cancel" value="아이디 재설정">
+					</div>
+					
+					
+					<div class="form-row">
+						<input type="password" name="member_pw" class="member_pw" id="member_pw" placeholder="비밀번호" value="">
+					</div>
+					<div class="form-row">
+						<input type="password" name="member_pw_chk" class="member_pw_chk" id="member_pw_chk" placeholder="비밀번호 확인">
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="member_name" class="member_name" id="member_name" placeholder="이름" value="${loginUserSession.member_name} ">
+						</div>
+						<div class="form-row form-row-2">
+								<select name="member_gender" id="member_gender">
+									<c:set var="gender" value="${loginUserSession.member_gender}">
+									    <option value="gender">성별</option>
+									    <option value="m" <c:if test="${gender eq m}">selected</c:if>>남성</option>
+									    <option value="f" <c:if test="${gender eq f}">selected</c:if>>여성</option>
+									</c:set>
+								</select>
+							<span class="select-btn">
+							  	<i class="zmdi zmdi-chevron-down"></i>
+							</span>
+						</div>
+					</div>
+			
+				
+					<div class="form-row">
+						<input type="text" name="member_phone" id="member_phone" class="input-text"  placeholder="휴대폰번호" value="${loginUserSession.member_phone}">
+					</div>
+					
+						
+					
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="button" name="register" class="register" id="send_email_verify" value="인증번호발송">
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="member_email" id="member_email" class="input-text"  placeholder="이메일"  value="${loginUserSession.member_email}">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="button" name="register" class="register" id="chk_email_verify" value="이메일 인증">
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="member_email_chk" id="member_email_chk" class="input-text"  placeholder="인증번호 입력">
+						</div>
+					</div>
+						<div class="form-row">
+							<span id="result_checkEmail"></span>
+						</div>
+					
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" id="submit" value="회원가입">
+					</div>
+					
+					
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+	
